@@ -1,0 +1,1 @@
+# from .Amazonapp.product import Product

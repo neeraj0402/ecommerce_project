@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <title>Title</title> 
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static '1st.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body> 
+    
+    <div class="container-fluid" id="navbar" >
+        <div class="combo1">
+        <div class="logobox">
+            <img src="" alt="">
+            <i class=" fa-solid fa-shopping-cart" id="logo"></i>
+            <span>.in</span>
+        </div>
+
+        <div class="searchbox">
+            <div class="searchbar">
+                <form action="" method="get">
+                    {% csrf_token %}
+                    <select name="" id="sel">
+                        <option value="All">All</option>
+                        <option value="All">kichen</option>
+                        <option value="All">glosrey</option>
+                    </select>
+
+                    <input type="search" id="searchbtn" style="border: none; border-top-right-radius: 6px;border-bottom-right-radius: 6px;">
+                        <i class="fa-solid fa-search" ></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        </div>
+
+    <div class="combo">
+        {% if request.session.customer %}
+        <div class="orderbox">
+            <div class="info2">
+                <a href="/cart" style="text-decoration: none;color: white;" class="nav-link">Cart <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+        <div class="orderbox">
+            <div class="info2">
+                <a href="/orders" style="text-decoration: none;color: white;" class="nav-link">Orders <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+        <div class="orderbox">
+            <div class="info2">
+                <a href="/logout" style="text-decoration: none;color: white;">Logout <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+        {% else %}
+        <div class="orderbox">
+            <div class="info2">
+                <a href="/cart" style="text-decoration: none;color: white;" class="nav-link">Cart <span class="sr-only">(current)</span></a>
+            </div>
+        </div>
+        <div class="orderbox">
+            <div class="info2">
+                <a href="{% url 'loginpage' %}" style="text-decoration: none;color: white;">Login</a>
+            </div>
+        </div> 
+        {% comment %} signup  div {% endcomment %}
+        <div class="orderbox">
+            <div class="info2">
+                <a href="{% url 'signuppage' %}" style="text-decoration: none;color: white;">Sign in</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    </div> 
+
+
+    {% block content %}
+        
+    {% endblock  %}
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="{% static '1st.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script> 
+</body>
+
+</html> 

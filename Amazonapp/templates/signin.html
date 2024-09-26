@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded p-3">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="{% url 'signuppage' %}" method="POST" style="flex-direction:column" class="pt-4">
+                {% csrf_token %}
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" value="{{values.first_name}}" name="firstname" id="firstname" placeholder="" class="form-control">
+                </div><br>
+
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" value="{{values.last_name}}" id="lastname" placeholder="" class="form-control">
+                </div><br>
+
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" required name="email" value="{{values.email}}" id="email" placeholder="example@gmail.com" class="form-control">
+                </div><br>
+
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="number" name="phone" value="{{values.phone}}" id="phone" placeholder="1234567890" class="form-control">
+                </div><br>
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="password" placeholder="******" class="form-control">
+                </div><br>
+
+                .<div class="form-group">
+                  <input type="submit" value="Create an account" name="" id="" class="btn btn-primary btn-sm">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% comment %} <!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- Bootstrap CSS v5.2.1 -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static '1stsign.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+    <div class="container" id="main">
+            <div class="logobox">
+                <img src="" alt="">
+                <i class=" fa-solid fa-shopping-cart" id="logo"></i>
+                <span>.in</span>
+            </div>
+
+            <div class="box">
+                <h1>sign in</h1>
+                <h6>Email or mobile phone number</h6>
+                <form action="" method="post">
+                    <input type="text" placeholder="enter your email" required>
+                    <button>continue</button>
+                </form>
+
+                <p>By continuing, you agree to Amazon's
+                    <a href="#">Conditions of Use <br></a> 
+                    and 
+                    <a href="#">Privacy Notice</a>
+                </p>
+
+                <span><i class="fa-solid fa-arrow-right"></i> <a href="#"> need help?</a></span>
+                <div class="line"></div>
+                <h5>Buying for work? <br>
+                <a href="#">Shop on Amazon Business</a>
+                </h5>
+            </div>
+
+            <div class="box2">
+                <div class="hr"></div>
+                <h4>New to Amazon?</h4>
+                <div class="hr"></div>
+            </div>
+
+            <a href="#" id="newac">Create your Amazon account</a>
+
+            <div class="hr2"></div>
+
+            <div class="links">
+                <a href="#">Conditions of Use</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="copyright">
+                <i class="fa-solid fa-copyright"></i>
+                <span>
+                    2024, AmazonClone.com, Inc. or its affiliates
+                </span>
+            </div>
+    </div>
+
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html> {% endcomment %}
